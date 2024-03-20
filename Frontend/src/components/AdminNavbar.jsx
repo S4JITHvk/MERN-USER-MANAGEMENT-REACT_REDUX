@@ -1,17 +1,13 @@
-import  React, { useEffect, useState } from "react";
+
 import { setUserData } from "../redux/features/userSlice";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
-const AdminNavbar = ({  setAddModalOpen,setSearch }) => {
-  
+const AdminNavbar = ({  setAddModalOpen,setSearch }) => {  
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
-
   const handleSearch = (e) => {
     const searchTerm = e.target.value.trim().toLowerCase();
-    console.log("handlesearch:",searchTerm);
     setSearch(searchTerm)
   };
 

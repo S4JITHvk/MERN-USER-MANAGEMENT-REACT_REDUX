@@ -20,8 +20,6 @@ const AdminDash = () => {
   const [open, setOpen] = useState(false);
 
   const usersdata = useSelector((state) => state.user.userData);
-  console.log("user data:@@@@@@", usersdata.data._id);
-
   const [editname, setEditname] = useState({
     name: "",
     id: "",
@@ -39,7 +37,6 @@ const AdminDash = () => {
     nameerr: "",
     passworderr: "",
   });
-  const [showPassword, setShowPassword] = useState(false);
   const [newUserData, setNewUserData] = useState({
     name: "",
     email: "",
@@ -62,6 +59,7 @@ const AdminDash = () => {
 
   const handleAddChange = (e) => {
     const { name, value } = e.target;
+    console.log(e.target,"IAM HERE BEFORE CHANGING VALUE")
     setNewUserData((prevUserData) => ({
       ...prevUserData,
       [name]: value,

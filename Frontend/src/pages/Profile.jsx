@@ -25,6 +25,7 @@ export const Profile = () => {
   const [selectedImage, setSelectedImage] = useState(userdatas.data.profile);
   const [userdata, SetUserdata] = useState({
     ...userdatas,
+    name:"",
     currentpassword: "",
     newpassword: "",
   });
@@ -137,7 +138,6 @@ export const Profile = () => {
         error.name = true;
         errordef.name = "name can't be empty";
       }
-      console.log(userdata.newpassword, "NEW PASSSWORD");
       if (userdata.currentpassword.length || userdata.newpassword.length) {
         if (isEmpty(userdata.newpassword)) {
           valid = false;
@@ -179,14 +179,15 @@ export const Profile = () => {
               }));
             } else if (data.success) {
               toast.success("Profile updated");
+              setEdit(false);
+              setViewonly(true);
             }
           })
           .catch((error) => {
             console.error("Error editing profile:", error);
           });
 
-        setEdit(false);
-        setViewonly(true);
+      
 
         fetch("http://localhost:3000/fetchuserdata", {
           method: "GET",
@@ -243,7 +244,7 @@ export const Profile = () => {
               className="w-[70%]"
               id="name-input"
               label="Name"
-              value={userdata?.data.name}
+              value={userdata.data.name}
               helperText={errdef.name}
             />
             <TextField

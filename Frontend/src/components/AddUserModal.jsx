@@ -10,6 +10,8 @@ const AddUserModal = ({
   error,
   errordef,
 }) => {
+
+  console.log( newUserData,"++++++>newUser")
   return (
     <>
        {isOpen && (
@@ -26,7 +28,6 @@ const AddUserModal = ({
               <input
                 type="text"
                 name="name"
-                value={newUserData.name}
                 onChange={handleAddChange}
                 className={`border px-4 py-2 w-full ${
                   error.namered ? "border-red-500" : ""
@@ -42,7 +43,6 @@ const AddUserModal = ({
               <input
                 type="email"
                 name="email"
-                value={newUserData.email}
                 onChange={handleAddChange}
                 className={`border px-4 py-2 w-full ${
                   error.emailred ? "border-red-500" : ""
@@ -58,7 +58,6 @@ const AddUserModal = ({
               <input
                 type="password"
                 name="Password"
-                value={newUserData.Password}
                 onChange={handleAddChange}
                 className={`border px-4 py-2 w-full ${
                   error.passwordred ? "border-red-500" : ""
